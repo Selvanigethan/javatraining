@@ -2,6 +2,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Comparator;
 
 public class Filter {
 
@@ -10,6 +11,9 @@ public class Filter {
         filterWithStream();
         processWithoutStream();
         processWithStream();
+        minimum();
+        maximum();
+        count();
     }
 
     static void filterWithStream() {
@@ -36,4 +40,23 @@ public class Filter {
         List<Student> students = Student.getStudents().stream().map(s -> new Student("Dr" + s.getName(), s.getId())).collect(Collectors.toList());
         System.out.println(students);
     }
+
+    static void minimum(){
+        Student stu=Student.getStudents().stream().min(Comparator.comparing(Student::getId)).get();
+        System.out.println(stu.getName());
+    }
+
+    static void maximum(){
+        Student stu=Student.getStudents().stream().max(Comparator.comparing(Student::getId)).get();
+        System.out.println(stu.getName());
+    }
+
+    static void count(){
+        long count=Student.getStudents().stream().count();
+        System.out.println(count);
+    }
+
+
+
+
 }
