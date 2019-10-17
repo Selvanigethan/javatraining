@@ -2,6 +2,7 @@ package com.example.smsui.controller;
 
 import org.springframework.beans.factory.support.SecurityContextProvider;
 import org.springframework.security.config.annotation.web.configurers.SecurityContextConfigurer;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.provider.SecurityContextAccessor;
@@ -24,4 +25,14 @@ public class AccessTokenConfig {
                 .concat(auth2AuthenticationDetails.getTokenValue());
 
     }
+    static String getPrincipalName(){
+        return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
+
+    static boolean getAuthorities(){
+        return SecurityContextHolder.getContext().getAuthentication().getAuthorities().contains(new SimpleGrantedAuthority("ROLE_admin"));
+    }
+
+
+
 }

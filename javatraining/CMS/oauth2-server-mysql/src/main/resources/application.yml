@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/authDB?createDatabaseIfNotExist=true
+    url: jdbc:mysql://localhost:3306/emsauthDB1?createDatabaseIfNotExist=true
     username: root
     password: 1qaz2wsx@
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -14,6 +14,6 @@ spring:
       hibernate:
         format_sql: true
     hibernate:
-#      ddl-auto: create
+      #      ddl-auto: create
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
