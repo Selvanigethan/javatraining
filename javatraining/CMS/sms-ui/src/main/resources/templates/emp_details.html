@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>Employee Info</title>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="jumbotron">
+        <h1>Employee Detail</h1>
+    </div>
+
+    <div th:unless="${error==null}">
+        <table class="table" >
+            <thead>
+            <td>Status Code</td>
+            <td>Error</td>
+            </thead>
+            <tbody>
+            <tr>
+                <td><span th:text="${error.statusCode}"></span></td>
+                <td><span th:text="${error.body}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div th:if="${error==null}">
+        <table class="table" >
+            <thead>
+            <td>ID</td>
+            <td>Name</td>
+
+            </thead>
+            <tbody>
+            <tr th:each="emp: ${employee}">
+                <td><span th:text="${emp.eid}"></span></td>
+                <td><span th:text="${emp.ename}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" href="#collapse1">Projects</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <div class="panel-body" th:if="${error==null}">
+                    <table class="table" >
+                        <tbody>
+                            <tr th:each="proj: ${employee.projects}" >
+                            <td><span th:text="${proj.pid}"></span></td>
+                            <td><span th:text="${proj.pname}"></span></td>
+                            <td><a href="#" th:href="@{/employee/{id}/tasks(id=${employee.eid})}" class="btn btn-info" role="button">view</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+<!--                <div class="panel-footer">Panel Footer</div>-->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</body>
+</html>
