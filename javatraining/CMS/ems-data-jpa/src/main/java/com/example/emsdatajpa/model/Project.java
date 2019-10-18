@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 public class Project {
@@ -41,19 +42,24 @@ public class Project {
         this.pname = pname;
     }
 
-    //public List<Employee> getEmployees() {
-     //   return employees;
-   // }
+    @Override
+    public String toString() {
+        return "Project Id: " + this.getPid() +
+                ", Project Name: " + this.getPname();
+    }
 
-  //  public void setEmployees(List<Employee> employees) {
-       // this.employees = employees;
-   // }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Project project = (Project) o;
+        return Objects.equals(pid, project.pid) &&
+                Objects.equals(pname, project.pname);
+    }
 
-  //  public List<Task> getTasks() {
-      //  return tasks;
-   // }
-
-   // public void setTasks(List<Task> tasks) {
-       // this.tasks = tasks;
-    //}
+    @Override
+    public int hashCode() {
+        return Objects.hash(pid, pname);
+    }
 }
+

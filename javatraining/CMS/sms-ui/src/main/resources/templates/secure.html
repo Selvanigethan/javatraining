@@ -16,37 +16,37 @@
     </div>
     <form name="students.form" th:action="@{/profile}" th:formmethod="post">
 
-    <button type="submit" class="btn btn-primary">Profiles</button>
+        <button type="submit" class="btn btn-primary">Profiles</button>
     </form>
 
     <div th:unless="${error==null}">
-    <table class="table" >
-        <thead>
-        <td>Status Code</td>
-        <td>Error</td>
-        </thead>
-        <tbody>
-        <tr>
-            <td><span th:text="${error.statusCode}"></span></td>
-            <td><span th:text="${error.body}"></span></td>
-        </tr>
-        </tbody>
-    </table>
+        <table class="table" >
+            <thead>
+            <td>Status Code</td>
+            <td>Error</td>
+            </thead>
+            <tbody>
+            <tr>
+                <td><span th:text="${error.statusCode}"></span></td>
+                <td><span th:text="${error.body}"></span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
-<br>
+    <br>
     <div th:if="${error==null}">
-    <table class="table" >
-        <thead>
-        <td>ID</td>
-        <td>First Name</td>
-        </thead>
-        <tbody>
-        <tr th:each="student: ${students}">
-            <td><span th:text="${student.sid}"></span></td>
-            <td><span th:text="${student.name}"></span></td>
-        </tr>
-        </tbody>
-    </table>
+        <table class="table" >
+            <thead>
+            <td>ID</td>
+            <td>First Name</td>
+            </thead>
+            <tbody>
+            <tr th:each="student: ${students}">
+                <td><span th:text="${student.sid}"></span></td>
+                <td><span th:text="${student.name}"></span></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 
 

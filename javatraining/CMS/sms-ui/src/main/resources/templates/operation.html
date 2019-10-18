@@ -10,8 +10,8 @@
 
 <div class="container">
 
-    <div class="jumbotron">
-        <h1>Operations</h1>
+    <div class="jumbotron fbbodycolor">
+        <h4 align="center">Assign Operations</h4>
     </div>
 
     <div th:unless="${error==null}">
@@ -37,56 +37,56 @@
             <tbody>
             <form class="form-inline" action="#" th:action="@{/operationForm}" th:object="${opn}" method="post">
 
-            <tr>
-            <td>
-                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Employees</label>
-                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" th:field="*{type}">
-                    <option th:each="employee: ${employees}" th:value="${employee.eid}" th:text="${employee.ename}"  selected>Choose...</option>
-                </select>
-            </td>
-            </tr>
+                <tr>
+                    <td>
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Employees</label>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" th:field="*{type}">
+                            <option th:each="employee: ${employees}" th:value="${employee.eid}" th:text="${employee.ename}"  selected>Choose...</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr>
-            <td>
-                <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Projects</label>
-                <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2" >
-                    <option th:each="project: ${projects}" th:value="${project.pid}" th:text="${project.pname}"  selected>Choose...</option>
-                </select>
-            </td>
-            </tr>
+                <tr>
+                    <td>
+                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Select Projects</label>
+                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref2" >
+                            <option th:each="project: ${projects}" th:value="${project.pid}" th:text="${project.pname}"  selected>Choose...</option>
+                        </select>
+                    </td>
+                </tr>
 
-            <tr>
-             <td>
+                <tr>
+                    <td>
 
-                 <div class="panel-group">
-                     <div class="panel panel-default">
-                         <div class="panel-heading">
-                             <h4 class="panel-title">
-                                 <a data-toggle="collapse" href="#collapse1">Select Tasks</a>
-                             </h4>
-                         </div>
-                         <div id="collapse1" class="panel-collapse collapse">
-                             <div class="panel-body" th:if="${error==null}">
-                                 <table class="table" >
-                                     <tbody>
-                                     <tr th:each="task: ${tasks}">
-                                         <div class="form-check">
-                                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
-                                             <label class="form-check-label" for="defaultCheck1" th:text="${task.tname}" th:value="${task.tid}" >
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" href="#collapse1">Select Tasks</a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1" class="panel-collapse collapse">
+                                    <div class="panel-body" th:if="${error==null}">
+                                        <table class="table" >
+                                            <tbody>
+                                            <tr th:each="task: ${tasks}">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" >
+                                                    <label class="form-check-label" for="defaultCheck1" th:text="${task.tname}" th:value="${task.tid}" >
 
-                                             </label>
-                                         </div>
-                                     </tr>
-                                     </tbody>
-                                 </table>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                                                    </label>
+                                                </div>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
 
-             </td>
-            </tr>
+                    </td>
+                </tr>
                 <tr>
                     <td>  <button type="submit" class="btn btn-primary">Submit</button>
                     </td>

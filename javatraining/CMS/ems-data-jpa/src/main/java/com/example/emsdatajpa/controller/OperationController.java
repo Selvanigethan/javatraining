@@ -18,6 +18,7 @@ public class OperationController  {
         return operationService.getOperationById(id);
     }
 
+    @RequestMapping(value = "/operations/save",method = RequestMethod.POST)
     public void save(@RequestBody Operation operation) {
         operationService.save(operation);
     }

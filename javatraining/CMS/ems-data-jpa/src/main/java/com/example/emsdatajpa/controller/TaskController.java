@@ -21,10 +21,10 @@ public class TaskController {
         return taskService.getTasks();
     }
 
-    @RequestMapping(value = "/tasks",method = RequestMethod.POST)
-    public Task save(@RequestBody Task task){
+    @RequestMapping(value = "/task",method = RequestMethod.POST)
+    public void save(@RequestBody Task task){
 
-        return taskService.save(task);
+        taskService.save(task);
 
     }
 

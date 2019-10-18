@@ -21,13 +21,13 @@ public class ProjectController {
         return projectService.getProjects();
     }
 
-    @RequestMapping(value = "/projects",method = RequestMethod.POST)
-    public Project save(@RequestBody Project project){
+    @RequestMapping(value = "/project",method = RequestMethod.POST)
+    public void save(@RequestBody Project project){
 
-        return projectService.save(project);
+        projectService.save(project);
 
     }
-    @RequestMapping(value = "/project/{id}",method = RequestMethod.GET)
+    @RequestMapping(value = "/projects/{id}",method = RequestMethod.GET)
     public Optional<Project> getEmployeeById(@PathVariable int id){
         return projectService.getProjectById(id);
     }

@@ -15,6 +15,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -44,7 +45,9 @@ public class UiController extends WebSecurityConfigurerAdapter {
                 .antMatchers("/","/img/**")
                 .permitAll()
                 .anyRequest()
-                .authenticated();
+                .authenticated()
+        .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/").deleteCookies("KSESSIONID","JSESSIONID").invalidateHttpSession(true).clearAuthentication(true);
     }
 
     @RequestMapping(value = "/")
@@ -461,7 +464,7 @@ public class UiController extends WebSecurityConfigurerAdapter {
                     .body(se.getResponseBodyAsString());
             model.addAttribute("error",responseEntity);
         }
-        return "my(main)menu"; //earlier "menu". him "main menu"//
+        return "mainmenu"; //earlier mine"menu". him "mainmenu"//
 
     }
 
