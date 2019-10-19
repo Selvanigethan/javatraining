@@ -18,6 +18,14 @@
   position: relative;
 }
 
+.header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
 
     </style>
 
@@ -36,24 +44,27 @@
 
 <div th:class="container" th:id="banner1" align="center">
     <div class = "jumbotron" style="">
+        <div class="header">
         <h1 th:id="title" > Employee Management System</h1>
+        </div>
+
     <div th:id="navbarfoot" >
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style= "align-items: center;">
             <li class="nav-item">
-                <a class="nav-link active" style="background-color: #bd2132;color: white;"  id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
+                <a class="nav-link active" style="background-color: #1abc9c;color: white;"  id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " th:id="pills-employee-tab" style="background-color: #bd2132; color: white;"data-toggle="pill" href="#pills-employee" role="tab" aria-controls="pills-profile" aria-selected="false">Employee</a>
+                <a class="nav-link " th:id="pills-employee-tab" style="background-color: #1abc9c; color: white;"data-toggle="pill" href="#pills-employee" role="tab" aria-controls="pills-profile" aria-selected="false">Employee</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="pills-project-tab" style="background-color: #bd2132;color: white;" data-toggle="pill" href="#pills-project" role="tab" aria-controls="pills-contact" aria-selected="false">Project</a>
+                <a class="nav-link " id="pills-project-tab" style="background-color:#1abc9c;color: white;" data-toggle="pill" href="#pills-project" role="tab" aria-controls="pills-contact" aria-selected="false">Project</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " id="pills-Task-tab" style="background-color: #bd2132; color: white;" data-toggle="pill" href="#pills-Task" role="tab" aria-controls="pills-contact" aria-selected="false">Task</a>
+                <a class="nav-link " id="pills-Task-tab" style="background-color: #1abc9c; color: white;" data-toggle="pill" href="#pills-Task" role="tab" aria-controls="pills-contact" aria-selected="false">Task</a>
             </li>
             <li class="nav-item" th:if="${privilage==true}">
-                <a class="nav-link " id="pills-operation-tab" style="background-color: #bd2132;color: white; " data-toggle="pill" href="#pills-operation" role="tab" aria-controls="pills-contact" aria-selected="false">Operation</a>
-
+                <a class="nav-link " id="pills-operation-tab" style="background-color: #1abc9c;color: white; " data-toggle="pill" href="#pills-operation" role="tab" aria-controls="pills-contact" aria-selected="false">Operation</a>
+            </li>
         </ul>
         <div class="right-corner">
             <a class="dropdown-item" href="#" th:text="${username}"></a>
@@ -70,8 +81,8 @@
 
                 <div class="container fbbodycolor">
                     <div class="jumbotron">
-                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createemp" class="btn btn-primary right" style="background-color: #bd2132;color: white;">Create Employee</a>
-                        <h4 align="center">Employee Details</h4>
+                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createemp" class="btn btn-primary right" style="background-color: #1abc9c;color: white;">Create Employee</a>
+                        <!--h4 align="center">Employee Details</h4-->
                     </div>
 
                     <div th:unless="${error==null}">
@@ -101,7 +112,7 @@
                             <tr th:each="employee: ${employees}">
                                 <td><span th:text="${employee.eid}"></span></td>
                                 <td><span th:text="${employee.ename}"></span></td>
-                                <td><a href="#" th:href="@{/employee/{id}(id=${employee.eid})}" class="btn btn-info" role="button">view</a></td>
+                                <td><a href="#" th:href="@{/employee/{id}(id=${employee.eid})}" class="btn btn-info" role="button" style="background-color: #1abc9c;color: white;">view</a></td>
 
                             </tr>
                             </tbody>
@@ -115,8 +126,8 @@
                 <div class="container fbbodycolor">
 
                     <div class="jumbotron">
-                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createproject" class="btn btn-primary right" style="color:#fff">Create Project</a>
-                        <h4 align="center">Project Details</h4>
+                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createproject" class="btn btn-primary right" style="background-color: #1abc9c;color: white;">Create Project</a>
+                        <!--h4 align="center">Project Details</h4-->
                     </div>
 
                     <div th:unless="${error==null}">
@@ -146,7 +157,7 @@
                             <tr th:each="project: ${projects}">
                                 <td><span th:text="${project.pid}"></span></td>
                                 <td><span th:text="${project.pname}"></span></td>
-                                <td><a href="#" th:href="@{/project/{id}(id=${project.pid})}" class="btn btn-info" role="button">view</a></td>
+                                <td><a href="#" th:href="@{/project/{id}(id=${project.pid})}" class="btn btn-info" role="button" style="background-color: #1abc9c;color: white;">view</a></td>
 
                             </tr>
                             </tbody>
@@ -162,8 +173,8 @@
                 <div class="container fbbodycolor">
 
                     <div class="jumbotron">
-                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createtask" class="btn btn-primary right" style="color:#fff">Create Task</a>
-                        <h4 align="center">Task Details</h4>
+                        <a th:if="${privilage==true}" data-toggle="modal" data-target="#createtask" class="btn btn-primary right" style="background-color: #1abc9c;color: white;">Create Task</a>
+                        <!--h4 align="center">Task Details</h4-->
                     </div>
 
                     <div th:unless="${error==null}">
@@ -193,7 +204,7 @@
                             <tr th:each="task: ${tasks}">
                                 <td><span th:text="${task.tid}"></span></td>
                                 <td><span th:text="${task.tname}"></span></td>
-                                <td><a href="#" th:href="@{/tasks/{id}(id=${task.tid})}" class="btn btn-info" role="button">view</a></td>
+                                <td><a href="#" th:href="@{/tasks/{id}(id=${task.tid})}" class="btn btn-info" role="button" style="background-color: #1abc9c;color: white;">view</a></td>
 
                             </tr>
                             </tbody>
@@ -208,9 +219,9 @@
 
                 <div class="container fbbodycolor">
 
-                    <div class="jumbotron ">
+                    <!--div class="jumbotron ">
                         <h4 align="center">Assign Operations</h4>
-                    </div>
+                    </div-->
 
                     <div th:unless="${error==null}">
                         <table class="table" >
@@ -257,7 +268,7 @@
                                             <div class="panel panel-default">
                                                 <div class="panel-heading left-align">
                                                     <h4 class="panel-title">
-                                                        <a data-toggle="collapse" href="#collapse1">Select Tasks</a>
+                                                        <a data-toggle="collapse" href="#collapse1" style="color: #1abc9c;">Select Tasks</a>
                                                     </h4>
                                                 </div>
                                                 <div id="collapse1" class="panel-collapse collapse left-align">
@@ -283,7 +294,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>  <button type="submit" class="btn btn-primary">Submit</button>
+                                    <td>  <button type="submit" class="btn btn-primary" style="background-color: #1abc9c;color: white;">Submit</button>
                                     </td>
                                 </tr>
 
