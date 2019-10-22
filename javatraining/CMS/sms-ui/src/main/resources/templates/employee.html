@@ -19,6 +19,16 @@
 }
 
 table { background-color: #f0f4fc; }
+
+   .header {
+  padding: 60px;
+  text-align: center;
+  background: #1abc9c;
+  color: white;
+  font-size: 30px;
+}
+
+
 </style>
 
 </head>
@@ -26,8 +36,10 @@ table { background-color: #f0f4fc; }
 
 <div class="container">
 
-    <div class="jumbotron">
+    <div class = "jumbotron" style="">
+        <div class="header">
         <h1>Employee Management System</h1>
+    </div>
     </div>
 
     <div th:unless="${error==null}">
